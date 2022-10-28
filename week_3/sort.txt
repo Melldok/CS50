@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: Because it was the fastest when the elements were sorted, which is the best case scenario for this method.
+
+sort2 uses: Merge sort
+
+How do you know?: Because it performed an average of 0.4s in all three 50k cases, which means it doesnt matter how are they sorted, it will still perform the same way (halving), also its known to be the fastest of all 3.
+
+sort3 uses: Selection sort
+
+How do you know?: It had an average of 3 seconds for every case, which made sense cause it still has to run through the entire array every time, even if its sorted.

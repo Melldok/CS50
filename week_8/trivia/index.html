@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the capital city of Spain?</h3>
+                <h4 class="multiple"></h4>
+                <button>Seville</button>
+                <button>Málaga</button>
+                <button>Huelva</button>
+                <button>Madrid</button>
+                <button>Granda</button>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What is the oldest sovereign state in the world?</h3>
+                <h4 class="free"></h4>
+
+
+                <input type="text">
+                <button class="check">Check Answer</button>
+
+
+            </div>
+        </div>
+
+
+       <script>
+
+            // TODO: Add code to check answers to question
+
+
+            let response = document.querySelectorAll("button:not(.check)");
+            let multiple = document.querySelector(".multiple")
+
+            response.forEach(button => {
+                // Adding event listener to all buttons
+                button.addEventListener("click", function(){
+
+                    //Button Validation with information inside.
+                    if(button.innerHTML != "Madrid"){
+
+                        response.forEach(button =>{
+                            //"CLeaning" all other answers
+                        button.classList.remove("correct");
+                        button.classList.remove("incorrect");
+                        });
+                            //Adding class
+                        button.classList.add("incorrect");
+                        multiple.innerHTML = ("Incorrect");
+
+                    }
+                    else if(button.innerHTML = "Madrid"){
+
+                        response.forEach(button =>{
+                        button.classList.remove("correct");
+                        button.classList.remove("incorrect");
+                        });
+
+                        button.classList.add("correct");
+                        multiple.innerHTML = ("Correct!")
+                    }
+                })
+            });
+
+            let box = document.querySelector('input');
+            let check = document.querySelector(".check");
+            let free = document.querySelector(".free")
+
+            check.addEventListener("click", function(){
+                if(box.value == "San Marino"){
+                    box.classList.remove("boxIncorrect");
+                    box.classList.add("boxCorrect");
+                    free.innerHTML = ("Correct!");
+
+                }
+                else if(box.value != "San Marino"){
+                    box.classList.remove("boxCorrect");
+                    box.classList.add("boxIncorrect");
+                    free.innerHTML = ("Incorrect");
+                }
+            })
+
+        </script>
+    </body>
+</html>
